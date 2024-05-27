@@ -10,26 +10,40 @@ function comenzarEnvioDatos() {
 
     id_intervalo = setInterval(() => {
         cambiarInformacionTramo1();
-        cambiarInformacionTramo2();
-
-        // fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/xbee/registro', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({
-        //         idXbee: "2",
-        //         nivel: nivel,
-        //         mensaje: mensaje
-        //     })
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log('Success:', data);
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
+        fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/xbee/registro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                idXbee: "1",
+                nivel: nivel,
+                mensaje: mensaje
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                cambiarInformacionTramo2();
+                console.log('Success:', data);
+                return fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/xbee/registro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        idXbee: "2",
+                        nivel: nivel,
+                        mensaje: mensaje
+                    })
+                });
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }, 2000);
 }
 
