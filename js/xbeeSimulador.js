@@ -6,7 +6,7 @@ let mensaje = "";
 let nivel = 0;
 let id_intervalo = 0;
 
-export function comenzarEnvioDatos() {
+function comenzarEnvioDatos() {
 
     id_intervalo = setInterval(() => {
         cambiarInformacionTramo1();
@@ -33,7 +33,7 @@ export function comenzarEnvioDatos() {
     }, 2000);
 }
 
-export function detenerEnvioDatos() {
+function detenerEnvioDatos() {
     clearInterval(id_intervalo);
 }
 
