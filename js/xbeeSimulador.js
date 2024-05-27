@@ -38,7 +38,7 @@ function detenerEnvioDatos() {
 }
 
 function cambiarInformacionTramo1() {
-    nivel = cambiarNivel(nivel_1);
+    nivel = cambiarNivel(parseInt(nivel_1.textContent));
     if (nivel == 0) {
         nivel_1.innerHTML = nivel;
         nivel_1.style.color = "green";
@@ -79,7 +79,7 @@ function cambiarInformacionTramo1() {
 }
 
 function cambiarInformacionTramo2() {
-    nivel = cambiarNivel(nivel_2);
+    nivel = cambiarNivel(parseInt(nivel_2.textContent));
     if (nivel == 0) {
         nivel_2.innerHTML = nivel;
         nivel_2.style.color = "green";
