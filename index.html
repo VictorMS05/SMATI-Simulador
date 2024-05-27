@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-MX">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMATI</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/SMATI_Logo.png">
 </head>
 
 <body>
-    <div class="container">
-        <p>TRAMO 1</p>
-        <input type="number" name="Slider 1" id="slider1" min="0" max="5" placeholder="0">
-        <p id="etiqueta1">Riesgo bajo</p><br>
-        <p>TRAMO 2</p>
-        <input type="number" name="Slider 2" id="slider2" min="0" max="5" placeholder="0">
-        <p id="etiqueta2">Riesgo bajo</p>
+    <div id="container">
+        <img src="img/SMATI_Logo.png" alt="Logo SMATI">
+        <div id="info_tramo">
+            <div>
+                <p>TRAMO 1</p>
+                <!-- <input type="number" name="Slider 1" id="slider1" min="0" max="5" placeholder="0"> -->
+                <p id="nivel_1">0</p>
+                <p id="descripcion_1">RIESGO BAJO</p>
+            </div>
+            <div>
+                <p>TRAMO 2</p>
+                <!-- <input type="number" name="Slider 2" id="slider2" min="0" max="5" placeholder="0"> -->
+                <p id="nivel_2">0</p>
+                <p id="descripcion_2">RIESGO BAJO</p>
+            </div>
+        </div>
+        <button onclick="comenzarEnvioDatos()">Encender</button>
+        <button onclick="detenerEnvioDatos()">Apagar</button>
     </div>
+    <!-- <script src="js/actualizacionSlider.js"></script> -->
+    <script src="js/xbeeSimulador.js"></script>
 </body>
-
-<script src="js/actualizacionSlider.js"></script>
 
 </html>

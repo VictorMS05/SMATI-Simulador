@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mensaje = "Riesgo alto"
         }
 
-        fetch('https://smati-production.up.railway.app/api/xbee/registro', {
+        fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/xbee/registro', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mensaje = "Riesgo alto"
         }
 
-        fetch('https://smati-production.up.railway.app/api/xbee/registro', {
+        fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/xbee/registro', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

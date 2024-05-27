@@ -1,19 +1,34 @@
 body {
+    background-image: url("https://i0.wp.com/lopezdoriga.com/wp-content/uploads/2016/07/Lluvias-Hebei-4.jpg");
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #7ed6df;
+    background-color: #e0e0e0ff;
 }
 
-.container {
+#container {
     text-align: center;
-    padding: 20px;
+    padding: 5vw;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 2.5vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+#container img {
+    margin: 2.5vh;
+    width: 20vw;
+}
+
+#info_tramo {
+    align-items: center;
+    display: flex;
+    gap: 5vw;
+    justify-content: center;
+    padding: 2.5vw;
 }
 
 input[type="number"] {
@@ -25,13 +40,26 @@ input[type="number"] {
 }
 
 p {
-    margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
+    line-height: 2rem;
+    margin: 0;
 }
 
-#etiqueta1,
-#etiqueta2 {
-    font-size: 16px;
+#nivel_1, #descripcion_1, #nivel_2, #descripcion_2 {
+    font-size: 1rem;
     color: green;
+}
+
+#container button {
+    background-color: #0094d2ff;
+    border-radius: 2.5vw;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1vw 2vw;
+    margin: 2.5vh 0.5vw;
+    width: 12.5vw;
 }
