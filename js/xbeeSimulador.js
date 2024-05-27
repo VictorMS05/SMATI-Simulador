@@ -133,3 +133,6 @@ function cambiarNivel(nivel) {
     }
     return nivel;
 }
+
+window.comenzarEnvioDatos = comenzarEnvioDatos;
+window.detenerEnvioDatos = detenerEnvioDatos;
