@@ -16,7 +16,7 @@ function comenzarEnvioDatos() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                idXbee: "1",
+                id_xbee: "1",
                 nivel: nivel,
                 mensaje: mensaje
             })
@@ -31,7 +31,7 @@ function comenzarEnvioDatos() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        idXbee: "2",
+                        id_xbee: "2",
                         nivel: nivel,
                         mensaje: mensaje
                     })
