@@ -5,11 +5,12 @@ let descripcion_2 = document.getElementById("descripcion_2");
 let mensaje = "";
 let nivel = 0;
 let id_intervalo = 0;
+let nivel_minimo = 0;
+let nivel_maximo = 2;
 
 function comenzarEnvioDatos() {
-
     id_intervalo = setInterval(() => {
-        cambiarInformacionTramo1();
+        cambiarInformacionTramo(true, parseInt(nivel_1.textContent));
         fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/xbee/registro', {
             method: 'POST',
             headers: {
@@ -23,7 +24,7 @@ function comenzarEnvioDatos() {
         })
             .then(response => response.json())
             .then(data => {
-                cambiarInformacionTramo2();
+                cambiarInformacionTramo(false, parseInt(nivel_2.textContent));
                 console.log('Success:', data);
                 return fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/xbee/registro', {
                     method: 'POST',
@@ -51,92 +52,61 @@ function detenerEnvioDatos() {
     clearInterval(id_intervalo);
 }
 
-function cambiarInformacionTramo1() {
-    nivel = cambiarNivel(parseInt(nivel_1.textContent));
-    if (nivel == 0) {
-        nivel_1.innerHTML = nivel;
-        nivel_1.style.color = "green";
-        descripcion_1.innerHTML = "RIESGO BAJO";
-        descripcion_1.style.color = "green";
-        mensaje = "RIESGO BAJO";
-    } else if (nivel == 1) {
-        nivel_1.innerHTML = nivel;
-        nivel_1.style.color = "orange";
-        descripcion_1.innerHTML = "RIESGO MEDIO";
-        descripcion_1.style.color = "orange";
-        mensaje = "RIESGO MEDIO";
-    } else if (nivel == 2) {
-        nivel_1.innerHTML = nivel;
-        nivel_1.style.color = "orange";
-        descripcion_1.innerHTML = "RIESGO MEDIO";
-        descripcion_1.style.color = "orange";
-        mensaje = "RIESGO MEDIO";
-    } else if (nivel == 3) {
-        nivel_1.innerHTML = nivel;
-        nivel_1.style.color = "red";
-        descripcion_1.innerHTML = "RIESGO ALTO";
-        descripcion_1.style.color = "red";
-        mensaje = "RIESGO ALTO";
-    } else if (nivel == 4) {
-        nivel_1.innerHTML = nivel;
-        nivel_1.style.color = "red";
-        descripcion_1.innerHTML = "RIESGO ALTO";
-        descripcion_1.style.color = "red";
-        mensaje = "RIESGO ALTO";
-    } else if (nivel == 5) {
-        nivel_1.innerHTML = nivel;
-        nivel_1.style.color = "red";
-        descripcion_1.innerHTML = "RIESGO ALTO";
-        descripcion_1.style.color = "red";
-        mensaje = "RIESGO ALTO";
+function cambiarParametros() {
+    if(nivel_minimo == 0 && nivel_maximo == 2) {
+        nivel_minimo = 3;
+        nivel_maximo = 5;
+    } else {
+        nivel_minimo = 0;
+        nivel_maximo = 2;
     }
 }
 
-function cambiarInformacionTramo2() {
-    nivel = cambiarNivel(parseInt(nivel_2.textContent));
+function cambiarInformacionTramo(es_tramo_1, nivel_anterior) {
+    let color = "black";
+    nivel = cambiarNivel(nivel_anterior);
     if (nivel == 0) {
-        nivel_2.innerHTML = nivel;
-        nivel_2.style.color = "green";
-        descripcion_2.innerHTML = "RIESGO BAJO";
-        descripcion_2.style.color = "green";
-        mensaje = "RIESGO BAJO";
+        color = "blue";
+        mensaje = "SIN RIESGO";
     } else if (nivel == 1) {
-        nivel_2.innerHTML = nivel;
-        nivel_2.style.color = "orange";
-        descripcion_2.innerHTML = "RIESGO MEDIO";
-        descripcion_2.style.color = "orange";
-        mensaje = "RIESGO MEDIO";
+        color = "green";
+        mensaje = "RIESGO BAJO";
     } else if (nivel == 2) {
-        nivel_2.innerHTML = nivel;
-        nivel_2.style.color = "orange";
-        descripcion_2.innerHTML = "RIESGO MEDIO";
-        descripcion_2.style.color = "orange";
-        mensaje = "RIESGO MEDIO";
+        color = "gold";
+        mensaje = "RIESGO MODERADO";
     } else if (nivel == 3) {
-        nivel_2.innerHTML = nivel;
-        nivel_2.style.color = "red";
-        descripcion_2.innerHTML = "RIESGO ALTO";
-        descripcion_2.style.color = "red";
+        color = "orange";
         mensaje = "RIESGO ALTO";
     } else if (nivel == 4) {
-        nivel_2.innerHTML = nivel;
-        nivel_2.style.color = "red";
-        descripcion_2.innerHTML = "RIESGO ALTO";
-        descripcion_2.style.color = "red";
-        mensaje = "RIESGO ALTO";
+        color = "red";
+        mensaje = "RIESGO INTENSO";
     } else if (nivel == 5) {
+        color = "blackred";
+        mensaje = "RIESGO MÁXIMO";
+    }
+    if (es_tramo_1) {
+        nivel_1.innerHTML = nivel;
+        nivel_1.style.color = color;
+        descripcion_1.innerHTML = mensaje;
+        descripcion_1.style.color = color;
+    } else {
         nivel_2.innerHTML = nivel;
-        nivel_2.style.color = "red";
-        descripcion_2.innerHTML = "RIESGO ALTO";
-        descripcion_2.style.color = "red";
-        mensaje = "RIESGO ALTO";
+        nivel_2.style.color = color;
+        descripcion_2.innerHTML = mensaje;
+        descripcion_2.style.color = color;
     }
 }
 
 function cambiarNivel(nivel) {
-    if (nivel == 0) {
+    if (nivel_minimo == 0 && nivel > 2) {
+        nivel = 2;
+    }
+    if (nivel_minimo == 3 && nivel < 3) {
+        nivel = 3;
+    }
+    if (nivel == nivel_minimo) {
         nivel++;
-    } else if (nivel == 5) {
+    } else if (nivel == nivel_maximo) {
         nivel--;
     } else {
         if (Math.floor(Math.random() * 2) == 0) {
@@ -150,3 +120,4 @@ function cambiarNivel(nivel) {
 
 window.comenzarEnvioDatos = comenzarEnvioDatos;
 window.detenerEnvioDatos = detenerEnvioDatos;
+window.cambiarParametros = cambiarParametros;

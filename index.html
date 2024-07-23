@@ -15,21 +15,21 @@
         <div id="info_tramo">
             <div>
                 <p>TRAMO 1</p>
-                <!-- <input type="number" name="Slider 1" id="slider1" min="0" max="5" placeholder="0"> -->
                 <p id="nivel_1">0</p>
-                <p id="descripcion_1">RIESGO BAJO</p>
+                <p id="descripcion_1">SIN RIESGO</p>
             </div>
             <div>
                 <p>TRAMO 2</p>
-                <!-- <input type="number" name="Slider 2" id="slider2" min="0" max="5" placeholder="0"> -->
                 <p id="nivel_2">0</p>
-                <p id="descripcion_2">RIESGO BAJO</p>
+                <p id="descripcion_2">SIN RIESGO</p>
             </div>
         </div>
-        <button onclick="comenzarEnvioDatos()">Encender</button>
-        <button onclick="detenerEnvioDatos()">Apagar</button>
+        <div id="buttons_container">
+            <button onclick="comenzarEnvioDatos()">Activar</button>
+            <button onclick="detenerEnvioDatos()">Desactivar</button>
+            <button onclick="cambiarParametros()">Cambiar</button>
+        </div>
     </div>
-    <!-- <script src="js/actualizacionSlider.js"></script> -->
     <script src="js/xbeeSimulador.js"></script>
 </body>
 
