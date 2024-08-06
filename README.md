@@ -1,3 +1,3 @@
-# SMATI Web
+# SMATI Simulador
 
-Página web para la manipulación de la información del Sistema de Monitoreo de Alerta Temprana de Inundaciones
+Repositorio del simulador de SMATI (Sistema de Monitoreo de Alerta Temprana para Inundaciones).
