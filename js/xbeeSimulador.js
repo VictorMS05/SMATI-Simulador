@@ -11,30 +11,28 @@ let nivel_maximo = 2;
 function comenzarEnvioDatos() {
     id_intervalo = setInterval(() => {
         cambiarInformacionTramo(true, parseInt(nivel_1.textContent));
-        fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/xbee/registro', {
+        fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/nivel', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 id_xbee: "1",
-                nivel: nivel,
-                mensaje: mensaje
+                nivel: nivel
             })
         })
             .then(response => response.json())
             .then(data => {
                 cambiarInformacionTramo(false, parseInt(nivel_2.textContent));
                 console.log('Success:', data);
-                return fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/xbee/registro', {
+                return fetch('https://smati-victors-projects-4d00ac16.vercel.app/api/nivel', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         id_xbee: "2",
-                        nivel: nivel,
-                        mensaje: mensaje
+                        nivel: nivel
                     })
                 });
             })
