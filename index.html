@@ -14,20 +14,33 @@
         <img src="img/SMATI_Logo.png" alt="Logo SMATI">
         <div id="info_tramo">
             <div>
-                <p>TRAMO 1</p>
-                <p id="nivel_1">0</p>
+                <label for="nivel_1">TRAMO 1</label>
+                <input type="number" id="nivel_1" min="-1" max="5" value="0">
                 <p id="descripcion_1">SIN RIESGO</p>
+                <button onclick="comenzarEnvioDatos(1)">Activar</button>
+                <button onclick="detenerEnvioDatos(1)">Desactivar</button>
             </div>
             <div>
-                <p>TRAMO 2</p>
-                <p id="nivel_2">0</p>
+                <label for="nivel_2">TRAMO 2</label>
+                <input type="number" id="nivel_2" min="-1" max="5" value="0">
                 <p id="descripcion_2">SIN RIESGO</p>
+                <button onclick="comenzarEnvioDatos(2)">Activar</button>
+                <button onclick="detenerEnvioDatos(2)">Desactivar</button>
             </div>
-        </div>
-        <div id="buttons_container">
-            <button onclick="comenzarEnvioDatos()">Activar</button>
-            <button onclick="detenerEnvioDatos()">Desactivar</button>
-            <button onclick="cambiarParametros()">Cambiar</button>
+            <div>
+                <label for="nivel_3">TRAMO 3</label>
+                <input type="number" id="nivel_3" min="-1" max="5" value="0">
+                <p id="descripcion_3">SIN RIESGO</p>
+                <button onclick="comenzarEnvioDatos(3)">Activar</button>
+                <button onclick="detenerEnvioDatos(3)">Desactivar</button>
+            </div>
+            <div>
+                <label for="nivel_4">TRAMO 4</label>
+                <input type="number" id="nivel_4" min="-1" max="5" value="0">
+                <p id="descripcion_4">SIN RIESGO</p>
+                <button onclick="comenzarEnvioDatos(4)">Activar</button>
+                <button onclick="detenerEnvioDatos(4)">Desactivar</button>
+            </div>
         </div>
     </div>
     <script src="js/xbeeSimulador.js"></script>

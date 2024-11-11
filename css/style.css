@@ -3,10 +3,12 @@ body {
     background-color: #111;
     background-image: url("https://i0.wp.com/lopezdoriga.com/wp-content/uploads/2016/07/Lluvias-Hebei-4.jpg");
     background-size: cover;
+    background-attachment: fixed;
     display: flex;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
-    height: 100vh;
     justify-content: center;
+    padding: 5vh;
     margin: 0;
 }
 
@@ -14,60 +16,75 @@ body {
     background-color: #eee;
     border-radius: 2.5vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    padding: 5vw;
+    padding: 5vh;
     text-align: center;
 }
 
 #container img {
-    margin: 2.5vh;
-    width: 20vw;
+    margin: 5vh 0;
+    width: 30vh;
 }
 
 #info_tramo {
     align-items: center;
     display: flex;
-    gap: 5vw;
+    gap: 5vh;
+    flex-wrap: wrap;
     justify-content: center;
-    padding: 2.5vw;
 }
 
 #info_tramo div {
-    width: 20vw;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-input[type="number"] {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 10px;
-    width: 100px;
-}
-
-p {
+label {
     font-size: 1.5rem;
     font-weight: bold;
     line-height: 2rem;
     margin: 0;
 }
 
-#nivel_1, #descripcion_1, #nivel_2, #descripcion_2 {
+input[type="number"] {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+}
+
+p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 0 0 2.5vh 0;
+}
+
+#nivel_1, #descripcion_1, #nivel_2, #descripcion_2, #nivel_3, #descripcion_3, #nivel_4, #descripcion_4 {
     color: blue;
     font-size: 1rem;
+    font-weight: bold;
+}
+
+.radio_container {
+    display: flex;
+    justify-content: center;
 }
 
 #buttons_container {
     width: 50vw;
 }
 
-#buttons_container button {
+button {
     background-color: #0094d2ff;
-    border-radius: 2.5vw;
+    border-radius: 25px;
     border: none;
     color: white;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: bold;
-    padding: 1vw 2vw;
-    margin: 2.5vh 0.5vw;
-    width: 20vw;
+    padding: 2vh 4vh;
+    margin: 1vh 0;
+    width: 18vh;
 }
